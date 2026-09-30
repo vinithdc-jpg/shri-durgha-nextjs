@@ -34,11 +34,11 @@ export default function Membership() {
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    e.currentTarget.reset();
+    const form = e.currentTarget;
+    // Defer reset so React finishes processing the event first
+    setTimeout(() => form.reset(), 0);
     setToastVisible(true);
-    setTimeout(() => {
-      setToastVisible(false);
-    }, 3000);
+    setTimeout(() => setToastVisible(false), 3000);
   };
 
   return (
@@ -101,10 +101,10 @@ export default function Membership() {
                     className="form-input"
                     defaultValue="Social Service & Medical Camps"
                   >
-                    <option>Social Service &amp; Medical Camps</option>
-                    <option>Yakshagana &amp; Cultural Events</option>
-                    <option>Sports &amp; Tournament Organization</option>
-                    <option>General Youth Membership</option>
+                    <option value="Social Service & Medical Camps">Social Service &amp; Medical Camps</option>
+                    <option value="Yakshagana & Cultural Events">Yakshagana &amp; Cultural Events</option>
+                    <option value="Sports & Tournament Organization">Sports &amp; Tournament Organization</option>
+                    <option value="General Youth Membership">General Youth Membership</option>
                   </select>
                 </div>
 

@@ -24,11 +24,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-saffron-100/80">
               {[
-                ["#about", "About Our Club"],
-                ["#activities", "Social Services"],
-                ["#events", "Yakshagana & Events"],
-                ["#membership", "Membership Form"],
-                ["#donate", "Donate Funds"],
+                ["/#about", "About Our Club"],
+                ["/#activities", "Social Services"],
+                ["/#events", "Yakshagana & Events"],
+                ["/#membership", "Membership Form"],
+                ["/#donate", "Donate Funds"],
               ].map(([href, label]) => (
                 <li key={href}>
                   <a href={href} className="transition hover:text-gold-400">

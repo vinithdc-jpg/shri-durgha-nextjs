@@ -65,14 +65,14 @@ export default function Hero() {
 
             <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row lg:justify-start">
               <a
-                href="#activities"
+                href="/#activities"
                 className="w-full rounded-full bg-saffron-500 px-8 py-3.5 text-center font-bold text-white shadow-lg transition-all hover:bg-saffron-600 hover:shadow-saffron-500/30 sm:w-auto"
               >
                 Explore Activities{" "}
                 <Icon name="fa-arrow-right" className="ml-2 text-sm" />
               </a>
               <a
-                href="#membership"
+                href="/#membership"
                 className="w-full rounded-full border-2 border-gold-400 px-8 py-3.5 text-center font-bold text-gold-300 transition-all hover:bg-gold-400 hover:text-maroon-900 sm:w-auto"
               >
                 Become a Member
@@ -148,7 +148,7 @@ export default function Hero() {
               </div>
 
               <a
-                href="#events"
+                href="/#events"
                 className="mt-5 block w-full rounded-xl bg-gold-500 py-2.5 text-center text-sm font-bold text-maroon-900 transition hover:bg-gold-600"
               >
                 View Event Details
