@@ -132,7 +132,7 @@ export default function Membership() {
 
             <div
               id="donate"
-              className="flex flex-col justify-between rounded-3xl border border-gold-400/20 bg-gradient-to-br from-maroon-900 to-maroon-800 p-8 text-white shadow-xl lg:col-span-5"
+              className="flex flex-col justify-between rounded-3xl border border-gold-400/20 bg-linear-to-br from-maroon-900 to-maroon-800 p-8 text-white shadow-xl lg:col-span-5"
             >
               <div>
                 <div className="mb-4 inline-block rounded-full bg-gold-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-maroon-900">
