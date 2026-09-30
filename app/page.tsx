@@ -8,6 +8,7 @@ import Activities from "../Components/Activities";
 import Event from "../Components/Event";
 import Committee from "../Components/Committee";
 import Membership from "../Components/MemberShip";
+import Content from "../Components/Content";
 
 type EventCategory = "all" | "cultural" | "social" | "sports";
 
@@ -222,85 +223,9 @@ export default function Home() {
 
       {/* Membership + Donation */}
       <Membership />
-      
-      {/* Contact */}
-      <section id="contact" className="bg-amber-50/50 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Get In Touch"
-            title="Contact Shri Durgha Club"
-          />
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-            <div className="space-y-6 lg:col-span-5">
-              <ContactCard icon="fa-location-dot" title="Club Address">
-                Shri Durgha Club Building, Badoor Post, Kasaragod / Dakshina
-                Kannada Border Region, Pin: 671323
-              </ContactCard>
-              <ContactCard icon="fa-phone" title="Phone Numbers">
-                <span className="block">+91 98450 00000 (President)</span>
-                <span className="block">+91 99000 11111 (Secretary)</span>
-              </ContactCard>
-              <ContactCard icon="fa-envelope" title="Email & Socials">
-                <span className="block">shridurghaclubbadoor@gmail.com</span>
-                <div className="mt-3 flex space-x-3">
-                  {[
-                    "fa-facebook-f",
-                    "fa-instagram",
-                    "fa-whatsapp",
-                    "fa-youtube",
-                  ].map((icon) => (
-                    <a
-                      key={icon}
-                      href="#"
-                      className="flex h-8 w-8 items-center justify-center rounded-full bg-maroon-900 text-gold-400 transition hover:bg-saffron-500 hover:text-white"
-                    >
-                      <Icon
-                        name={icon}
-                        prefix="fa-brands"
-                        className="text-xs"
-                      />
-                    </a>
-                  ))}
-                </div>
-              </ContactCard>
-            </div>
 
-            <div className="rounded-3xl border border-amber-100 bg-white p-8 shadow-md lg:col-span-7">
-              <h3 className="mb-4 font-heading text-xl font-bold text-maroon-900">
-                Send a Quick Message
-              </h3>
-              <form onSubmit={handleFormSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <input
-                    required
-                    placeholder="Your Name *"
-                    className="form-input"
-                  />
-                  <input
-                    required
-                    type="tel"
-                    placeholder="Mobile Number *"
-                    className="form-input"
-                  />
-                </div>
-                <input placeholder="Subject" className="form-input" />
-                <textarea
-                  required
-                  rows={4}
-                  placeholder="Write your message or inquiry here..."
-                  className="form-input"
-                />
-                <button
-                  type="submit"
-                  className="rounded-xl bg-saffron-500 px-8 py-3 font-bold text-white shadow transition hover:bg-saffron-600"
-                >
-                  Send Message <Icon name="fa-paper-plane" className="ml-2" />
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Contact */}
+      <Content />
 
       {/* Footer */}
       <footer className="border-t border-gold-400/20 bg-maroon-900 pb-8 pt-12 text-white">
