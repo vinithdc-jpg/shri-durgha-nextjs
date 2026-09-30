@@ -10,6 +10,7 @@ import Committee from "../Components/Committee";
 import Membership from "../Components/MemberShip";
 import Content from "../Components/Content";
 import Footer from "../Components/Footer";
+import Toast from "../Components/ui/Toast";
 
 type EventCategory = "all" | "cultural" | "social" | "sports";
 
@@ -25,92 +26,6 @@ type EventItem = {
   description: string;
 };
 
-const events: EventItem[] = [
-  {
-    category: "cultural",
-    image:
-      "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=600&q=80",
-    alt: "Yakshagana Event",
-    label: "Cultural",
-    labelClass: "bg-saffron-500",
-    date: "Nov 12, 2025",
-    title: "Grand Yakshagana Bayalata",
-    shortDescription:
-      "Over 1,000 villagers gathered to experience the mythical performance by renowned artists.",
-    description:
-      "Performed at Badoor Temple premises featuring top artists. The event saw overwhelming participation from surrounding villages, celebrating traditional folk theater.",
-  },
-  {
-    category: "social",
-    image:
-      "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=600&q=80",
-    alt: "Blood Donation",
-    label: "Social",
-    labelClass: "bg-red-600",
-    date: "Jan 26, 2026",
-    title: "Mega Blood Donation Drive",
-    shortDescription:
-      "128 units of blood collected on Republic Day in association with Yenepoya Blood Bank.",
-    description:
-      "Organized on Republic Day. Over 128 voluntary donors participated. Certificate and refreshments were presented to all youth volunteers.",
-  },
-  {
-    category: "sports",
-    image:
-      "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=600&q=80",
-    alt: "Sports Meet",
-    label: "Sports",
-    labelClass: "bg-blue-600",
-    date: "Feb 15, 2026",
-    title: "Badoor Rural Kabaddi Tournament",
-    shortDescription:
-      "16 regional teams competed in an exciting floodlight Kabaddi championship.",
-    description:
-      "An intense 1-day floodlight Kabaddi trophy that brought together rural talents. Cash prizes and trophies were handed over by local dignitaries.",
-  },
-  {
-    category: "cultural",
-    image:
-      "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=600&q=80",
-    alt: "Ganesha Utsava",
-    label: "Cultural",
-    labelClass: "bg-saffron-500",
-    date: "Sep 07, 2025",
-    title: "Public Ganesha Utsava Celebrations",
-    shortDescription:
-      "Three days of spiritual pujas, cultural bhajans, and community feast (Maha Annadana).",
-    description:
-      "Featuring daily Mahapooja, devotional bhajan sessions, children competitions, and traditional immersion procession.",
-  },
-  {
-    category: "social",
-    image:
-      "https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?auto=format&fit=crop&w=600&q=80",
-    alt: "Scholarship Distribution",
-    label: "Social",
-    labelClass: "bg-emerald-600",
-    date: "Jun 05, 2025",
-    title: "School Kit & Scholarship Distribution",
-    shortDescription:
-      "Assisting over 75 deserving students from local government schools with bags and books.",
-    description:
-      "Shri Durgha Club members sponsored educational kits and financial aid for high school students in Badoor.",
-  },
-  {
-    category: "social",
-    image:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
-    alt: "Plantation Drive",
-    label: "Social",
-    labelClass: "bg-teal-600",
-    date: "Jul 10, 2025",
-    title: "Vanamahotsava Tree Planting",
-    shortDescription:
-      "Planted over 200 fruit-bearing trees along public roadsides in Badoor.",
-    description:
-      "Youth volunteers came together to plant saplings and build protective guards to promote green environment in Badoor.",
-  },
-];
 
 function Icon({
   name,
@@ -124,45 +39,8 @@ function Icon({
   return <i className={`${prefix} ${name} ${className}`} aria-hidden="true" />;
 }
 
-function SectionHeading({
-  eyebrow,
-  title,
-  description,
-}: {
-  eyebrow: string;
-  title: string;
-  description?: string;
-}) {
-  return (
-    <div className="mx-auto mb-16 max-w-3xl text-center">
-      <span className="text-sm font-semibold uppercase tracking-wider text-saffron-600">
-        {eyebrow}
-      </span>
-      <h2 className="mt-2 font-heading text-3xl font-bold text-maroon-900 md:text-4xl">
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-3 text-sm text-gray-600 md:text-base">{description}</p>
-      )}
-      <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-saffron-500" />
-    </div>
-  );
-}
-
 export default function Home() {
-  const [category, setCategory] = useState<EventCategory>("all");
   const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
-  const [toastVisible, setToastVisible] = useState(false);
-  const [toastTitle, setToastTitle] = useState("Submitted!");
-  const [toastMessage, setToastMessage] = useState(
-    "Thank you for reaching out to Shri Durgha Club.",
-  );
-  const [countdown, setCountdown] = useState({
-    days: 18,
-    hours: 8,
-    minutes: 45,
-    seconds: 22,
-  });
 
   useEffect(() => {
     document.body.style.overflow = selectedEvent ? "hidden" : "";
@@ -170,38 +48,8 @@ export default function Home() {
       document.body.style.overflow = "";
     };
   }, [selectedEvent]);
-
-  const showToast = (
-    title = "Submitted!",
-    message = "Thank you for reaching out to Shri Durgha Club.",
-  ) => {
-    setToastTitle(title);
-    setToastMessage(message);
-    setToastVisible(true);
-    window.setTimeout(() => setToastVisible(false), 4000);
-  };
-
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    e.currentTarget.reset();
-    showToast();
-  };
-
-  const filteredEvents =
-    category === "all"
-      ? events
-      : events.filter((event) => event.category === category);
-
-  const navLinks = [
-    ["#home", "Home"],
-    ["#about", "About Us"],
-    ["#activities", "Activities"],
-    ["#events", "Events"],
-    ["#committee", "Leadership"],
-    ["#membership", "Join Us"],
-    ["#contact", "Contact"],
-  ];
-
+  
+  
   return (
     <main className="min-h-screen bg-amber-50/30 font-sans text-gray-800 antialiased selection:bg-saffron-500 selection:text-white">
       {/* Navigation */}
@@ -275,24 +123,7 @@ export default function Home() {
       )}
 
       {/* Toast */}
-      <div
-        className={`fixed bottom-5 right-5 z-[70] flex items-center space-x-3 rounded-2xl border border-gold-400 bg-maroon-900 px-6 py-3.5 shadow-2xl transition-all duration-300 ${
-          toastVisible
-            ? "translate-y-0 opacity-100"
-            : "translate-y-20 opacity-0 pointer-events-none"
-        }`}
-        aria-live="polite"
-      >
-        <Icon name="fa-circle-check" className="text-xl text-emerald-400" />
-        <div>
-          <p className="text-sm font-bold text-white">{toastTitle}</p>
-          <p className="text-xs text-saffron-100">{toastMessage}</p>
-        </div>
-      </div>
+      <Toast />
     </main>
   );
 }
-
-
-
-
