@@ -1,43 +1,8 @@
+"use client";
+import Icon from "./ui/Icon";
+import SectionHeading from "./ui/SectionHeading";
+
 export default function About() {
-  function SectionHeading({
-    eyebrow,
-    title,
-    description,
-  }: {
-    eyebrow: string;
-    title: string;
-    description?: string;
-  }) {
-    return (
-      <div className="mx-auto mb-16 max-w-3xl text-center">
-        <span className="text-sm font-semibold uppercase tracking-wider text-saffron-600">
-          {eyebrow}
-        </span>
-        <h2 className="mt-2 font-heading text-3xl font-bold text-maroon-900 md:text-4xl">
-          {title}
-        </h2>
-        {description && (
-          <p className="mt-3 text-sm text-gray-600 md:text-base">
-            {description}
-          </p>
-        )}
-        <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-saffron-500" />
-      </div>
-    );
-  }
-  function Icon({
-    name,
-    className = "",
-    prefix = "fa-solid",
-  }: {
-    name: string;
-    className?: string;
-    prefix?: "fa-solid" | "fa-regular" | "fa-brands";
-  }) {
-    return (
-      <i className={`${prefix} ${name} ${className}`} aria-hidden="true" />
-    );
-  }
   return (
     <section id="about" className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -74,7 +39,7 @@ export default function About() {
 
           <div className="space-y-6">
             <h3 className="font-heading text-2xl font-bold text-gray-900">
-              The History & Spirit of Shri Durgha Club, Badoor
+              The History &amp; Spirit of Shri Durgha Club, Badoor
             </h3>
             <p className="leading-relaxed text-gray-600">
               Established with a passionate vision to serve the rural community

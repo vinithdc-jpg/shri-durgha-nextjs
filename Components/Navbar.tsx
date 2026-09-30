@@ -1,32 +1,19 @@
 "use client";
 import { useState } from "react";
+import Icon from "./ui/Icon";
+
+const navLinks: [string, string][] = [
+  ["#home", "Home"],
+  ["#about", "About Us"],
+  ["#activities", "Activities"],
+  ["#events", "Events"],
+  ["#committee", "Leadership"],
+  ["#membership", "Join Us"],
+  ["#contact", "Contact"],
+];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  function Icon({
-    name,
-    className = "",
-    prefix = "fa-solid",
-  }: {
-    name: string;
-    className?: string;
-    prefix?: "fa-solid" | "fa-regular" | "fa-brands";
-  }) {
-    return (
-      <i className={`${prefix} ${name} ${className}`} aria-hidden="true" />
-    );
-  }
-
-  const navLinks = [
-    ["#home", "Home"],
-    ["#about", "About Us"],
-    ["#activities", "Activities"],
-    ["#events", "Events"],
-    ["#committee", "Leadership"],
-    ["#membership", "Join Us"],
-    ["#contact", "Contact"],
-  ];
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 bg-maroon-900/95 text-white shadow-lg backdrop-blur-md">

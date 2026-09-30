@@ -1,19 +1,8 @@
+"use client";
 import { useEffect, useState } from "react";
+import Icon from "./ui/Icon";
 
 export default function Hero() {
-  function Icon({
-    name,
-    className = "",
-    prefix = "fa-solid",
-  }: {
-    name: string;
-    className?: string;
-    prefix?: "fa-solid" | "fa-regular" | "fa-brands";
-  }) {
-    return (
-      <i className={`${prefix} ${name} ${className}`} aria-hidden="true" />
-    );
-  }
   const [countdown, setCountdown] = useState({
     days: 18,
     hours: 8,
@@ -56,7 +45,7 @@ export default function Hero() {
           <div className="space-y-6 text-center lg:col-span-7 lg:text-left">
             <div className="inline-flex items-center space-x-2 rounded-full border border-gold-400/40 bg-maroon-800/80 px-4 py-1.5 text-xs font-semibold text-gold-300 backdrop-blur-sm md:text-sm">
               <span className="h-2 w-2 animate-ping rounded-full bg-saffron-500" />
-              <span>Registered Non-Profit Social & Cultural Club</span>
+              <span>Registered Non-Profit Social &amp; Cultural Club</span>
             </div>
 
             <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
@@ -114,7 +103,7 @@ export default function Hero() {
                 NEXT MEGA EVENT
               </div>
               <h3 className="mb-2 font-heading text-xl font-bold text-gold-400">
-                Annual Cultural Fest & Yakshagana Night
+                Annual Cultural Fest &amp; Yakshagana Night
               </h3>
               <p className="mb-4 text-sm text-saffron-100/80">
                 Join us at Badoor School Grounds for a grand celebration of

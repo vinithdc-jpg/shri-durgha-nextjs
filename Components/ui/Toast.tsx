@@ -1,30 +1,21 @@
-import { useState } from "react";
+"use client";
+import Icon from "./Icon";
 
-export default function Toast() {
-  const [toastVisible, setToastVisible] = useState(false);
-  const [toastTitle, setToastTitle] = useState("Submitted!");
-  const [toastMessage, setToastMessage] = useState(
-    "Thank you for reaching out to Shri Durgha Club.",
-  );
+interface ToastProps {
+  visible: boolean;
+  title?: string;
+  message?: string;
+}
 
-  function Icon({
-    name,
-    className = "",
-    prefix = "fa-solid",
-  }: {
-    name: string;
-    className?: string;
-    prefix?: "fa-solid" | "fa-regular" | "fa-brands";
-  }) {
-    return (
-      <i className={`${prefix} ${name} ${className}`} aria-hidden="true" />
-    );
-  }
-
+export default function Toast({
+  visible,
+  title = "Submitted!",
+  message = "Thank you for reaching out to Shri Durgha Club.",
+}: ToastProps) {
   return (
     <div
-      className={`fixed bottom-5 right-5 z-[70] flex items-center space-x-3 rounded-2xl border border-gold-400 bg-maroon-900 px-6 py-3.5 shadow-2xl transition-all duration-300 ${
-        toastVisible
+      className={`fixed bottom-5 right-5 z-70 flex items-center space-x-3 rounded-2xl border border-gold-400 bg-maroon-900 px-6 py-3.5 shadow-2xl transition-all duration-300 ${
+        visible
           ? "translate-y-0 opacity-100"
           : "translate-y-20 opacity-0 pointer-events-none"
       }`}
@@ -32,8 +23,8 @@ export default function Toast() {
     >
       <Icon name="fa-circle-check" className="text-xl text-emerald-400" />
       <div>
-        <p className="text-sm font-bold text-white">{toastTitle}</p>
-        <p className="text-xs text-saffron-100">{toastMessage}</p>
+        <p className="text-sm font-bold text-white">{title}</p>
+        <p className="text-xs text-saffron-100">{message}</p>
       </div>
     </div>
   );
