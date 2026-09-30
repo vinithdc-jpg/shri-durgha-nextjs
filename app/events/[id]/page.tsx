@@ -51,7 +51,7 @@ export default async function EventPage({
               <img
                 src={event.image}
                 alt={event.alt}
-                className="w-full h-[400px] object-cover"
+                className="w-full h-100 object-cover"
               />
             </div>
           </div>
