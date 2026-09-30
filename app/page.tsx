@@ -9,6 +9,7 @@ import Event from "../Components/Event";
 import Committee from "../Components/Committee";
 import Membership from "../Components/MemberShip";
 import Content from "../Components/Content";
+import Footer from "../Components/Footer";
 
 type EventCategory = "all" | "cultural" | "social" | "sports";
 
@@ -228,67 +229,7 @@ export default function Home() {
       <Content />
 
       {/* Footer */}
-      <footer className="border-t border-gold-400/20 bg-maroon-900 pb-8 pt-12 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-4">
-            <div className="space-y-4 md:col-span-2">
-              <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-saffron-500 font-bold text-maroon-900">
-                  SDC
-                </div>
-                <span className="font-heading text-xl font-bold text-gold-400">
-                  SHRI DURGHA CLUB, BADOOR
-                </span>
-              </div>
-              <p className="max-w-sm text-xs leading-relaxed text-saffron-100/80">
-                A non-profit social & cultural organization committed to youth
-                development, preservation of traditional folk arts, healthcare
-                support, and social welfare in Badoor.
-              </p>
-            </div>
-            <div>
-              <h4 className="mb-3 font-heading text-sm font-bold text-gold-400">
-                Quick Links
-              </h4>
-              <ul className="space-y-2 text-xs text-saffron-100/80">
-                {[
-                  ["#about", "About Our Club"],
-                  ["#activities", "Social Services"],
-                  ["#events", "Yakshagana & Events"],
-                  ["#membership", "Membership Form"],
-                  ["#donate", "Donate Funds"],
-                ].map(([href, label]) => (
-                  <li key={href}>
-                    <a href={href} className="transition hover:text-gold-400">
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-3 font-heading text-sm font-bold text-gold-400">
-                Location
-              </h4>
-              <p className="text-xs leading-relaxed text-saffron-100/80">
-                Badoor Village, <br />
-                Near Government School,
-                <br />
-                Kasaragod / Puttur Region, India.
-              </p>
-              <p className="mt-2 text-xs font-semibold text-gold-400">
-                Serving the community with devotion.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center justify-between border-t border-maroon-800 pt-6 text-xs text-saffron-100/60 sm:flex-row">
-            <p>&copy; 2026 Shri Durgha Club, Badoor. All rights reserved.</p>
-            <p className="mt-2 sm:mt-0">
-              Designed for Non-Profit Community Welfare.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Event Modal */}
       {selectedEvent && (
@@ -352,50 +293,6 @@ export default function Home() {
   );
 }
 
-function FormField({
-  label,
-  type,
-  required,
-  placeholder,
-}: {
-  label: string;
-  type: string;
-  required?: boolean;
-  placeholder: string;
-}) {
-  return (
-    <div>
-      <label className="mb-1 block text-xs font-semibold uppercase text-gray-700">
-        {label}
-      </label>
-      <input
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="form-input"
-      />
-    </div>
-  );
-}
 
-function ContactCard({
-  icon,
-  title,
-  children,
-}: {
-  icon: string;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex items-start space-x-4 rounded-2xl border border-amber-100 bg-white p-6 shadow-sm">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-saffron-100 text-xl text-saffron-600">
-        <Icon name={icon} />
-      </div>
-      <div>
-        <h4 className="font-bold text-maroon-900">{title}</h4>
-        <div className="mt-1 text-sm text-gray-600">{children}</div>
-      </div>
-    </div>
-  );
-}
+
+
