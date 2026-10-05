@@ -11,26 +11,44 @@ export default function About() {
           title="Driven by Purpose, United by Tradition"
         />
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <div className="relative">
+          <div className="relative group">
+            {/* Image */}
             <div className="relative overflow-hidden rounded-2xl border-4 border-amber-100 shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
                 alt="Cultural Gathering"
-                className="h-96 w-full object-cover"
+                className="h-96 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.src =
                     "https://placehold.co/800x600/6b0f1a/ffffff?text=Shri+Durgha+Club";
                 }}
               />
+
+              {/* Dark overlay */}
               <div className="absolute inset-0 flex items-end bg-linear-to-t from-maroon-900/90 via-transparent to-transparent p-6">
                 <p className="text-sm font-medium italic text-white">
-                  &quot;Empowering the youth of Badoor to build a vibrant,
-                  harmonious society.&quot;
+                  "Empowering the youth of Badoor to build a vibrant, harmonious
+                  society."
                 </p>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 hidden max-w-xs rounded-2xl bg-saffron-500 p-6 text-white shadow-xl sm:block">
+
+            {/* Non-profit card - appears on hover */}
+            <div
+              className="
+      absolute -bottom-6 -right-6
+      max-w-xs rounded-2xl bg-saffron-500 p-6 text-white shadow-xl
+      opacity-0 translate-y-4 scale-95
+      pointer-events-none
+      transition-all duration-500 ease-out
+      group-hover:opacity-100
+      group-hover:translate-y-0
+      group-hover:scale-100
+      group-hover:pointer-events-auto
+    "
+            >
               <Icon name="fa-hands-holding-child" className="mb-2 text-3xl" />
+
               <p className="text-sm font-bold">
                 100% Non-Profit Community Driven
               </p>

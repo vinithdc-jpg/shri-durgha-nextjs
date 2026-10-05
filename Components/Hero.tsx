@@ -43,11 +43,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           <div className="space-y-6 text-center lg:col-span-7 lg:text-left">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-gold-400/40 bg-maroon-800/80 px-4 py-1.5 text-xs font-semibold text-gold-300 backdrop-blur-sm md:text-sm">
-              <span className="h-2 w-2 animate-ping rounded-full bg-saffron-500" />
-              <span>Registered Non-Profit Social &amp; Cultural Club</span>
-            </div>
-
+          
             <h1 className="font-heading text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               Serving Community, <br />
               <span className="text-gradient-gold">Preserving Culture.</span>
