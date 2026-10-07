@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Icon from "./ui/Icon";
+import Image from "next/image";
 
 const navLinks: [string, string][] = [
   ["/#home", "Home"],
@@ -20,10 +21,15 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <a href="/#home" className="group flex items-center space-x-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-tr from-saffron-500 to-gold-400 p-0.5 shadow-md transition-transform group-hover:scale-105">
-              <div className="flex h-full w-full items-center justify-center rounded-full border border-gold-400/30 bg-maroon-900">
-                <span className="font-bold text-xl text-gold-400">SDC</span>
-              </div>
+            <div className="flex h-12 w-12 items-center justify-center transition-transform group-hover:scale-105">
+              <Image
+                src="/Logo.png"
+                alt="Shri Durgha Club Logo"
+                width={52}
+                height={52}
+                className="h-12 w-12 object-contain"
+                priority
+              />
             </div>
             <div>
               <span className="block font-heading text-lg font-bold leading-tight tracking-wider text-gold-400 md:text-xl">
