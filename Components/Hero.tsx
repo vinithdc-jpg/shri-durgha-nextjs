@@ -4,9 +4,9 @@ import Icon from "./ui/Icon";
 
 export default function Hero() {
   const [countdown, setCountdown] = useState({
-    days: 18,
-    hours: 8,
-    minutes: 45,
+    days: 0,
+    hours: 0,
+    minutes: 1,
     seconds: 22,
   });
   useEffect(() => {
