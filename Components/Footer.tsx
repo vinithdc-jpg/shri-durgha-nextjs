@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="border-t border-gold-400/20 bg-maroon-900 pb-8 pt-12 text-white">
@@ -5,8 +7,15 @@ export default function Footer() {
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4 md:col-span-2">
             <div className="flex items-center space-x-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-saffron-500 font-bold text-maroon-900">
-                SDC
+              <div className="flex h-12 w-12 items-center justify-center transition-transform group-hover:scale-105">
+                <Image
+                  src="/Logo.png"
+                  alt="Shri Durgha Club Logo"
+                  width={52}
+                  height={52}
+                  className="h-12 w-12 object-contain"
+                  priority
+                />
               </div>
               <span className="font-heading text-xl font-bold text-gold-400">
                 SHRI DURGHA CLUB, BADOOR

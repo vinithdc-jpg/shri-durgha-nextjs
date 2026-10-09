@@ -40,18 +40,26 @@ export default function Committee() {
           {members.map(([initials, name, role, description]) => (
             <div
               key={name}
-              className="rounded-2xl border border-amber-100 bg-white p-6 text-center shadow-md transition hover:shadow-xl"
+              className="relative rounded-3xl border border-amber-200/80 bg-linear-to-b from-white to-amber-50/30 p-6 text-center shadow-md transition-all duration-300 hover:border-saffron-400 hover:shadow-2xl"
             >
-              <div className="mx-auto mb-4 h-24 w-24 rounded-full bg-linear-to-tr from-saffron-500 to-gold-400 p-1">
-                <div className="flex h-full w-full items-center justify-center rounded-full bg-amber-100 text-2xl font-bold text-maroon-900">
+              {/* Avatar Ring */}
+              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed border-saffron-400 p-1">
+                <div className="flex h-full w-full items-center justify-center rounded-full bg-maroon-900 text-xl font-bold text-amber-300 shadow-inner">
                   {initials}
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-maroon-900">{name}</h3>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-saffron-600">
+
+              <h3 className="text-base font-bold text-maroon-950">{name}</h3>
+
+              <p className="mt-1 text-xs font-bold uppercase tracking-widest text-saffron-600">
                 {role}
               </p>
-              <p className="mt-3 text-xs text-gray-500">{description}</p>
+
+              <hr className="my-3 border-t border-amber-200/60" />
+
+              <p className="text-xs leading-relaxed text-slate-600">
+                {description}
+              </p>
             </div>
           ))}
         </div>
